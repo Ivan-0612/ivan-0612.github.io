@@ -1,0 +1,9 @@
+---
+import profile from '../content/profile.json';
+---
+<footer class="border-t border-line py-8 text-sm text-muted">
+  <div class="container-cv flex flex-wrap items-center justify-between gap-3">
+    <p>© {new Date().getFullYear()} {profile.name}</p>
+    <p>Hecho con Astro, Tailwind y GSAP · <a class="underline-offset-4 hover:underline" href={profile.links.github} target="_blank" rel="noopener">GitHub</a></p>
+  </div>
+</footer>

@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { categoryLabels } from '../../lib/format';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('projects')).sort(
+    (a, b) => a.data.order - b.data.order || b.data.date.getTime() - a.data.date.getTime(),
+  );
+  return all.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, next: all[(i + 1) % all.length] },
+  }));
+}
+
+const { entry, next } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const [l1, l2] = d.repoLabels ?? ['Código', 'Código 2'];
+---
+<BaseLayout title={`${d.title} · Iván Benito`} description={d.summary} theme="dark">
+  <Nav />
+  <main id="contenido" class="container-cv pb-24 pt-36">
+    <a href={url('/#proyectos')} class="eyebrow inline-flex items-center gap-2 hover:text-fg"><Icon name="lucide:arrow-left" class="h-4 w-4" />Proyectos</a>
+    <p class="eyebrow mt-10 text-accent">{categoryLabels[d.category]}</p>
+    <h1 class="h-display mt-3 max-w-4xl text-[clamp(2.5rem,6vw,5rem)]">{d.title}</h1>
+    <p class="mt-5 max-w-2xl text-xl text-muted">{d.summary}</p>
+    <ul class="mt-6 flex flex-wrap gap-1.5">{d.stack.map((s: string) => <li class="tag">{s}</li>)}</ul>
+    <div class="mt-8 flex flex-wrap gap-3">
+      {d.repo && <a href={d.repo} target="_blank" rel="noopener" class="btn btn-ghost"><Icon name="simple-icons:github" class="h-4 w-4" />{l1}</a>}
+      {d.repo2 && <a href={d.repo2} target="_blank" rel="noopener" class="btn btn-ghost"><Icon name="simple-icons:github" class="h-4 w-4" />{l2}</a>}
+      {d.demo && <a href={d.demo} target="_blank" rel="noopener" class="btn btn-solid"><Icon name="lucide:external-link" class="h-4 w-4" />Ver demo</a>}
+    </div>
+    <hr class="my-12 border-line" />
+    <div class="prose-cv"><Content /></div>
+    <a href={url(`/proyectos/${next.id}/`)} class="mt-20 block rounded-2xl border border-line bg-surface p-8 transition-colors hover:border-accent">
+      <span class="eyebrow">Siguiente proyecto</span>
+      <span class="h-display mt-2 block text-3xl">{next.data.title} →</span>
+    </a>
+  </main>
+  <Footer />
+</BaseLayout>

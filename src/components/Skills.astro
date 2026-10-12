@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import { url } from '../lib/url';
+
+const groups = (await getCollection('skills')).sort((a, b) => a.data.order - b.data.order);
+const projects = await getCollection('projects');
+const titles = Object.fromEntries(projects.map((p) => [p.id, p.data.title]));
+const all = groups.flatMap((g) => g.data.items.map((i) => i.name));
+---
+<section id="habilidades" class="section">
+  <div class="container-cv">
+    <p class="eyebrow">02 — Habilidades</p>
+    <h2 class="h-display h-section mt-4">Con qué trabajo</h2>
+    <p class="mt-4 max-w-xl text-muted">Pasa el ratón (o toca) una habilidad de las de abajo para ver en qué proyectos la he usado.</p>
+  </div>
+
+  <div class="marquee mt-12 overflow-hidden border-y border-line py-5" aria-hidden="true">
+    <div class="marquee-track flex gap-10 font-display text-3xl text-muted">
+      {[...all, ...all].map((n) => <span class="whitespace-nowrap">{n} <span class="text-accent">·</span></span>)}
+    </div>
+  </div>
+
+  <div class="container-cv mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2">
+    {groups.map((g) => (
+      <div class="reveal">
+        <h3 class="eyebrow mb-4 text-fg">{g.data.group}</h3>
+        <ul class="flex flex-wrap gap-2">
+          {g.data.items.map((i) => (
+            <li>
+              <button
+                type="button"
+                class="chip cursor-pointer rounded-full border border-line px-3.5 py-1.5 text-sm text-muted"
+                data-projects={i.projects.join(',')}
+                data-note={i.note ?? ''}
+                aria-expanded="false"
+              >{i.name}</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div
+    id="skill-pop"
+    role="status"
+    hidden
+    class="fixed z-40 w-72 rounded-xl border border-line bg-surface p-4 text-sm shadow-2xl"
+    data-titles={JSON.stringify(titles)}
+    data-base={url('/proyectos/')}
+  >
+    <p id="skill-pop-title" class="font-medium"></p>
+    <p id="skill-pop-label" class="eyebrow mt-2"></p>
+    <ul id="skill-pop-list" class="mt-1 space-y-1"></ul>
+    <p id="skill-pop-note" class="mt-2 text-muted"></p>
+  </div>
+</section>

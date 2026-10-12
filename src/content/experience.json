@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ufv-data-analyst",
+    "title": "Analista de Datos (Prácticas)",
+    "org": "Universidad Francisco de Vitoria",
+    "location": "Madrid",
+    "start": "2025-11", "end": "2026-06",
+    "bullets": [
+      "Responsable del ciclo completo del dato en proyectos de reporting: limpieza y preparación de datos, modelado, análisis y presentación de resultados a los equipos usuarios.",
+      "Uso de Excel avanzado, Power Query y Python para consolidar, depurar y validar datos de distintas fuentes académicas antes de analizarlos.",
+      "Diseño de modelos de datos y creación de informes interactivos en Power BI (DAX, marcadores, filtros), automatizando el reporting institucional.",
+      "Técnicas estadísticas y de Machine Learning (clustering, Random Forest, regresión) para segmentar perfiles y predecir el rendimiento académico.",
+      "Automatización de tareas e ingesta de datos con Power Automate."
+    ],
+    "stack": ["Excel", "Power Query", "Python", "Power BI", "DAX", "Power Automate"]
+  }
+]

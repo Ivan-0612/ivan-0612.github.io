@@ -1,0 +1,24 @@
+---
+import profile from '../content/profile.json';
+import { url } from '../lib/url';
+const links = [
+  ['Sobre mí', '#sobre-mi'],
+  ['Habilidades', '#habilidades'],
+  ['Proyectos', '#proyectos'],
+  ['Experiencia', '#experiencia'],
+  ['Certificaciones', '#certificaciones'],
+  ['Contacto', '#contacto'],
+];
+---
+<header id="nav" class="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/70 backdrop-blur-md">
+  <div id="progress" class="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-accent"></div>
+  <nav class="container-cv flex h-16 items-center justify-between" aria-label="Principal">
+    <a href={url('/#inicio')} class="font-display text-2xl leading-none" aria-label="Inicio">IB</a>
+    <ul class="hidden items-center gap-7 text-sm text-muted md:flex">
+      {links.map(([label, href]) => (
+        <li><a href={url('/' + href)} class="transition-colors hover:text-fg">{label}</a></li>
+      ))}
+    </ul>
+    <a href={profile.links.cv} download class="btn btn-ghost !py-1.5 !text-sm">CV</a>
+  </nav>
+</header>

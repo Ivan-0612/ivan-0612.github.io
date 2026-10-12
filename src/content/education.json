@@ -1,0 +1,16 @@
+[
+  {
+    "id": "master-ufv",
+    "title": "Máster en Business Analytics, IA y Machine Learning",
+    "org": "Universidad Francisco de Vitoria",
+    "location": "Madrid",
+    "start": "2025", "end": "2026", "precision": "year"
+  },
+  {
+    "id": "ade-usal",
+    "title": "Grado en Administración y Dirección de Empresas",
+    "org": "Universidad de Salamanca",
+    "location": "Salamanca",
+    "start": "2021", "end": "2025", "precision": "year"
+  }
+]

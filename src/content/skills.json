@@ -1,0 +1,253 @@
+[
+  {
+    "id": "fabric",
+    "group": "Microsoft Fabric",
+    "items": [
+      {
+        "name": "Lakehouse",
+        "projects": [
+          "fabric-financial-dwh",
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "Data Warehouse",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Data Factory (pipelines)",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "OneLake",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "Arquitectura Medallion",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "Direct Lake",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "Notebooks PySpark",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      }
+    ],
+    "order": 1
+  },
+  {
+    "id": "sql",
+    "group": "SQL y modelado de datos",
+    "items": [
+      {
+        "name": "T-SQL",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Procedimientos almacenados",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Vistas",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Funciones ventana",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Modelado dimensional (estrella)",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "ETL / ELT",
+        "projects": [
+          "fabric-financial-dwh",
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "Calidad del dato",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      }
+    ],
+    "order": 2
+  },
+  {
+    "id": "bi",
+    "group": "BI y visualización",
+    "items": [
+      {
+        "name": "Power BI (modelos semánticos)",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ],
+        "note": "También lo usé en mis prácticas en la UFV."
+      },
+      {
+        "name": "DAX",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ],
+        "note": "También lo usé en mis prácticas en la UFV."
+      },
+      {
+        "name": "Power Query",
+        "projects": [],
+        "note": "Lo usé en mis prácticas en la UFV para depurar y consolidar datos."
+      },
+      {
+        "name": "Excel avanzado",
+        "projects": [],
+        "note": "Lo usé en mis prácticas en la UFV para consolidar y validar datos."
+      },
+      {
+        "name": "Looker Studio",
+        "projects": [],
+        "note": "Sin proyecto público en esta web."
+      },
+      {
+        "name": "MicroStrategy",
+        "projects": [],
+        "note": "Sin proyecto público en esta web."
+      }
+    ],
+    "order": 3
+  },
+  {
+    "id": "security",
+    "group": "Seguridad y gobierno del dato",
+    "items": [
+      {
+        "name": "Row-Level Security (RLS)",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Dynamic Data Masking",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      },
+      {
+        "name": "Control de acceso",
+        "projects": [
+          "fabric-financial-dwh"
+        ]
+      }
+    ],
+    "order": 4
+  },
+  {
+    "id": "code-ml",
+    "group": "Programación, automatización y ML",
+    "items": [
+      {
+        "name": "Python",
+        "projects": [
+          "salary-seniority-prediction",
+          "telco-customer-churn",
+          "diabetes-prediction"
+        ],
+        "note": "También lo usé en mis prácticas en la UFV."
+      },
+      {
+        "name": "Pandas",
+        "projects": [
+          "salary-seniority-prediction",
+          "telco-customer-churn",
+          "diabetes-prediction"
+        ],
+        "note": "También lo usé en mis prácticas en la UFV."
+      },
+      {
+        "name": "PySpark",
+        "projects": [
+          "olist-ecommerce-fabric"
+        ]
+      },
+      {
+        "name": "Scikit-Learn",
+        "projects": [
+          "telco-customer-churn",
+          "diabetes-prediction"
+        ]
+      },
+      {
+        "name": "XGBoost",
+        "projects": [
+          "salary-seniority-prediction",
+          "telco-customer-churn"
+        ]
+      },
+      {
+        "name": "Clustering",
+        "projects": [
+          "diabetes-prediction"
+        ],
+        "note": "También lo usé en mis prácticas en la UFV."
+      },
+      {
+        "name": "NLP",
+        "projects": [
+          "salary-seniority-prediction"
+        ]
+      },
+      {
+        "name": "Arquitecturas RAG",
+        "projects": [
+          "salary-seniority-prediction"
+        ]
+      },
+      {
+        "name": "Power Automate",
+        "projects": [],
+        "note": "Lo usé en mis prácticas en la UFV para automatizar tareas e ingesta de datos."
+      },
+      {
+        "name": "n8n",
+        "projects": [],
+        "note": "Lo aprendí con un curso de Udemy."
+      },
+      {
+        "name": "Git",
+        "projects": [
+          "fabric-financial-dwh",
+          "olist-ecommerce-fabric",
+          "salary-seniority-prediction",
+          "telco-customer-churn",
+          "diabetes-prediction"
+        ],
+        "note": "Todos mis proyectos están versionados en GitHub."
+      }
+    ],
+    "order": 5
+  }
+]

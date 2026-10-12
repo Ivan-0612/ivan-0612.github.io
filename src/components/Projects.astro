@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import { categoryLabels } from '../lib/format';
+
+const all = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order || b.data.date.getTime() - a.data.date.getTime(),
+);
+const categories = [...new Set(all.map((p) => p.data.category))];
+---
+<section id="proyectos" class="section">
+  <div class="container-cv">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow">03 — Proyectos</p>
+        <h2 class="h-display h-section mt-4">Lo que he construido</h2>
+      </div>
+      <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar proyectos" id="project-filters">
+        <button type="button" class="tag chip" data-filter="all" aria-pressed="true">Todos</button>
+        {categories.map((c) => <button type="button" class="tag chip" data-filter={c} aria-pressed="false">{categoryLabels[c]}</button>)}
+      </div>
+    </div>
+
+    <div id="project-grid" class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {all.map((p, i) => (
+        <div class:list={['project-item', p.data.featured && 'lg:col-span-1']} data-category={p.data.category}>
+          <ProjectCard id={p.id} data={p.data} index={i} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

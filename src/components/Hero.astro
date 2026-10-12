@@ -1,0 +1,26 @@
+---
+import profile from '../content/profile.json';
+import AvatarVideo from './AvatarVideo.astro';
+import { url } from '../lib/url';
+---
+<section id="inicio" class="relative flex min-h-[100svh] items-center pb-12 pt-24">
+  <div class="container-cv grid items-center gap-x-10 gap-y-0 md:grid-cols-[1.15fr_1fr] md:gap-y-10">
+    <!-- En móvil el bloque de texto se «deshace» (contents) para poder intercalar el avatar:
+         nombre y titular → avatar → resto. En escritorio sigue siendo una columna. -->
+    <div class="max-md:contents md:order-1">
+      <p class="eyebrow mb-6 max-md:order-1">{profile.location}</p>
+      <h1 id="hero-name" class="h-display text-[clamp(3.5rem,9vw,8rem)] max-md:order-2" aria-label={profile.name}>{profile.name}</h1>
+      <p id="hero-headline" class="mt-6 font-mono text-sm uppercase tracking-wider text-accent max-md:order-3">{profile.headline}</p>
+      <p id="hero-tagline" class="mt-5 max-w-xl text-lg text-muted max-md:order-5">{profile.tagline}</p>
+      <div id="hero-cta" class="mt-9 flex flex-wrap gap-3 max-md:order-6">
+        <a href={url('/#proyectos')} class="btn btn-solid" data-magnetic>Ver proyectos</a>
+        <a href={profile.links.cv} download class="btn btn-ghost" data-magnetic>Descargar CV</a>
+      </div>
+    </div>
+    <div class="order-4 max-md:mb-2 max-md:mt-8 md:order-2"><AvatarVideo /></div>
+  </div>
+  <div class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex" aria-hidden="true">
+    <span class="eyebrow">scroll</span>
+    <span class="relative h-10 w-px overflow-hidden bg-line"><span id="scroll-dot" class="absolute inset-x-0 top-0 h-4 bg-fg"></span></span>
+  </div>
+</section>

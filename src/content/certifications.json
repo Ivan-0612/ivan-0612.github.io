@@ -1,0 +1,57 @@
+[
+  {
+    "id": "fabric-analytics-engineer",
+    "name": "Microsoft Certified: Fabric Analytics Engineer Associate",
+    "date": "2027-10",
+    "credentialUrl": "https://learn.microsoft.com/api/credentials/share/es-es/IvnBenitoSnchez-3832/1E5568F6F1B1411E?sharingId=116350E491507F34",
+    "issuer": "Microsoft",
+    "logo": "simple-icons:microsoft",
+    "type": "certificacion",
+    "order": 1
+  },
+  {
+    "id": "aws-cloud-practitioner",
+    "name": "AWS Certified Cloud Practitioner",
+    "date": "2029-07",
+    "credentialUrl": "https://www.credly.com/badges/c4556b2c-4cb0-4b21-98a9-a4769d4b41ce/linked_in_profile",
+    "issuer": "Amazon Web Services",
+    "logo": "simple-icons:amazonwebservices",
+    "type": "certificacion",
+    "order": 2
+  },
+  {
+    "id": "ibm-data-science",
+    "name": "IBM Data Science Professional Certificate",
+    "credentialUrl": "https://www.credly.com/badges/c902e58f-af04-4098-88d8-69523586d603/linked_in_profile",
+    "issuer": "IBM",
+    "logo": "simple-icons:ibm",
+    "type": "certificacion",
+    "order": 3
+  },
+  {
+    "id": "n8n-udemy",
+    "name": "Automatización con n8n",
+    "issuer": "Udemy",
+    "credentialUrl": "https://ude.my/UC-b5e83c7e-eb51-4005-8c75-7e3d661d14bc",
+    "logo": "simple-icons:n8n",
+    "type": "curso",
+    "order": 4
+  },
+  {
+    "id": "freecodecamp-data-analysis-python",
+    "name": "Data Analysis with Python",
+    "issuer": "freeCodeCamp",
+    "credentialUrl": "https://freecodecamp.org/certification/ivan1003/data-analysis-with-python-v7",
+    "logo": "simple-icons:freecodecamp",
+    "type": "curso",
+    "order": 5
+  },
+  {
+    "id": "usal-analisis-datos-ia",
+    "name": "Análisis de datos con inteligencia artificial en el campo de economía y empresa",
+    "issuer": "Universidad de Salamanca",
+    "logo": "lucide:graduation-cap",
+    "type": "curso",
+    "order": 6
+  }
+]

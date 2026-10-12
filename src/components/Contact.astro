@@ -1,0 +1,30 @@
+---
+import profile from '../content/profile.json';
+import { Icon } from 'astro-icon/components';
+---
+<section id="contacto" class="section">
+  <div class="container-cv">
+    <p class="eyebrow">07 — Contacto</p>
+    <h2 class="h-display mt-4 text-[clamp(2.75rem,8vw,6.5rem)]">
+      ¿Hablamos de datos?
+    </h2>
+    <p class="mt-6 max-w-xl text-lg text-muted">
+      Busco un puesto de Data Analyst o BI Analyst. Escríbeme y te respondo en cuanto pueda.
+    </p>
+    <div class="mt-10 flex flex-wrap items-center gap-3">
+      <button type="button" id="copy-email" class="btn btn-solid" data-magnetic data-email={profile.links.email}>
+        <Icon name="lucide:mail" class="h-4 w-4" /><span id="copy-email-label">{profile.links.email}</span>
+      </button>
+      <a href={profile.links.linkedin} target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>
+        <Icon name="simple-icons:linkedin" class="h-4 w-4" />LinkedIn
+      </a>
+      <a href={profile.links.github} target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>
+        <Icon name="simple-icons:github" class="h-4 w-4" />GitHub
+      </a>
+      <a href={profile.links.cv} download class="btn btn-ghost" data-magnetic>
+        <Icon name="lucide:download" class="h-4 w-4" />CV (PDF)
+      </a>
+    </div>
+    <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+  </div>
+</section>
