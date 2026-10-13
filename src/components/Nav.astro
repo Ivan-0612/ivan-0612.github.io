@@ -18,7 +18,7 @@ const other: Lang = lang === 'es' ? 'en' : 'es';
       ))}
     </ul>
     <div class="flex items-center gap-2">
-      <a href={url(alt[other])} hreflang={other} lang={other} class="btn btn-ghost !px-3 !py-1.5 !text-sm" aria-label={t.switchAria} title={t.switchTo}>{t.switchShort}</a>
+      <a href={url(alt[other])} hreflang={other} lang={other} data-set-lang={other} class="btn btn-ghost !px-3 !py-1.5 !text-sm" aria-label={t.switchAria} title={t.switchTo}>{t.switchShort}</a>
       <a href={p.links.cv} download class="btn btn-ghost !py-1.5 !text-sm">{t.cv}</a>
     </div>
   </nav>

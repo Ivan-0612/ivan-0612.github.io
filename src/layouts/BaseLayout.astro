@@ -25,6 +25,7 @@ const {
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const abs = (path: string) => new URL(url(path), Astro.site).href;
+const enTarget = url(alt.en);
 const ogImage = new URL(url('/og-image.png'), Astro.site).href;
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -43,6 +44,28 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline define:vars={{ enTarget, auto: lang === 'es' }}>
+      // Idioma: si has elegido uno con el botón ES/EN, se respeta; si no, se usa el del navegador.
+      // Español si tu navegador lo prefiere; en inglés (u otro idioma) se abre la versión en inglés.
+      try {
+        if (auto) {
+          var pick = localStorage.getItem('lang');
+          if (pick !== 'es' && pick !== 'en' && !/bot|crawl|spider|slurp|facebookexternalhit|preview/i.test(navigator.userAgent)) {
+            var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'es'];
+            pick = 'en';
+            for (var i = 0; i < langs.length; i++) {
+              var l = String(langs[i]).toLowerCase().slice(0, 2);
+              if (l === 'es' || l === 'en') { pick = l; break; }
+            }
+          }
+          if (pick === 'en') location.replace(enTarget + location.hash);
+        }
+      } catch (e) {}
+      document.addEventListener('click', function (ev) {
+        var a = ev.target && ev.target.closest && ev.target.closest('a[data-set-lang]');
+        if (a) { try { localStorage.setItem('lang', a.getAttribute('data-set-lang')); } catch (e) {} }
+      });
+    </script>
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
