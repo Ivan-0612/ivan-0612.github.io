@@ -2,25 +2,30 @@
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import { formatDate } from '../lib/format';
+import { ui, tr, lurl, projectPath, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
 
 const all = (await getCollection('certifications')).sort((a, b) => a.data.order - b.data.order);
-const certs = all.filter((c) => c.data.type === 'certificacion');
-const courses = all.filter((c) => c.data.type === 'curso');
+const loc = all.map((c) => ({ ...c, data: tr(c.data, lang) }));
+const certs = loc.filter((c) => c.data.type === 'certificacion');
+const courses = loc.filter((c) => c.data.type === 'curso');
 ---
 <section id="certificaciones" class="section">
   <div class="container-cv">
-    <p class="eyebrow">06 — Certificaciones</p>
-    <h2 class="h-display h-section mt-4">Lo que he acreditado</h2>
+    <p class="eyebrow">{t.certEyebrow}</p>
+    <h2 class="h-display h-section mt-4">{t.certTitle}</h2>
 
     <ul class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {certs.map(({ data }) => (
         <li class="reveal spot rounded-2xl border border-line bg-surface p-6">
           <Icon name={data.logo} class="h-8 w-8 text-fg" />
           <h3 class="mt-5 text-lg font-medium leading-snug">{data.name}</h3>
-          <p class="mt-1 text-sm text-muted">{data.issuer}{data.date ? ` · ${formatDate(data.date)}` : ''}</p>
+          <p class="mt-1 text-sm text-muted">{data.issuer}{data.date ? ` · ${formatDate(data.date, 'month', lang)}` : ''}</p>
           {data.credentialUrl && (
             <a href={data.credentialUrl} target="_blank" rel="noopener" class="relative z-10 mt-4 inline-flex items-center gap-1.5 text-sm text-accent hover:underline">
-              Verificar <Icon name="lucide:arrow-up-right" class="h-4 w-4" />
+              {t.verify} <Icon name="lucide:arrow-up-right" class="h-4 w-4" />
             </a>
           )}
         </li>
@@ -29,7 +34,7 @@ const courses = all.filter((c) => c.data.type === 'curso');
 
     {courses.length > 0 && (
       <div class="reveal mt-14">
-        <h3 class="eyebrow">Formación complementaria</h3>
+        <h3 class="eyebrow">{t.extraTraining}</h3>
         <ul class="mt-4 flex flex-wrap gap-3">
           {courses.map(({ data }) => {
             const Tag = data.credentialUrl ? 'a' : 'span';

@@ -1,19 +1,17 @@
-const fmtMonth = new Intl.DateTimeFormat('es-ES', { month: 'short', year: 'numeric', timeZone: 'UTC' });
-const fmtYear = new Intl.DateTimeFormat('es-ES', { year: 'numeric', timeZone: 'UTC' });
+import type { Lang } from './i18n';
+import { ui } from './i18n';
 
-export function formatDate(d: Date, precision: 'year' | 'month' = 'month') {
-  return (precision === 'year' ? fmtYear : fmtMonth).format(d).replace('.', '');
+const locale = (l: Lang) => (l === 'en' ? 'en-GB' : 'es-ES');
+const fmt = (l: Lang, o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat(locale(l), { ...o, timeZone: 'UTC' });
+
+export function formatDate(d: Date, precision: 'year' | 'month' = 'month', lang: Lang = 'es') {
+  const f = precision === 'year' ? fmt(lang, { year: 'numeric' }) : fmt(lang, { month: 'short', year: 'numeric' });
+  return f.format(d).replace('.', '');
 }
 
-export function formatRange(start: Date, end: Date | undefined, precision: 'year' | 'month' = 'month') {
-  return `${formatDate(start, precision)} – ${end ? formatDate(end, precision) : 'Actualidad'}`;
+export function formatRange(start: Date, end: Date | undefined, precision: 'year' | 'month' = 'month', lang: Lang = 'es') {
+  return `${formatDate(start, precision, lang)} – ${end ? formatDate(end, precision, lang) : ui[lang].present}`;
 }
 
-export const categoryLabels: Record<string, string> = {
-  fabric: 'Microsoft Fabric',
-  'power-bi': 'Power BI',
-  'machine-learning': 'Machine Learning',
-  mlops: 'MLOps',
-  automation: 'Automatización',
-  app: 'Aplicaciones',
-};
+/** Compatibilidad: etiquetas de categoría en español */
+export const categoryLabels: Record<string, string> = ui.es.categories;

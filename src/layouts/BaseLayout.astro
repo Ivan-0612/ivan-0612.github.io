@@ -5,31 +5,41 @@ import '@fontsource/jetbrains-mono/400.css';
 import '../styles/global.css';
 import profile from '../content/profile.json';
 import { url } from '../lib/url';
+import { ui, tr, lurl, type Lang } from '../lib/i18n';
 
 interface Props {
   title?: string;
   description?: string;
   theme?: 'light-to-dark' | 'dark';
+  lang?: Lang;
+  /** Ruta equivalente en cada idioma (para hreflang y el selector ES/EN) */
+  alt?: { es: string; en: string };
 }
+const { lang = 'es', alt = { es: '/', en: '/en/' }, theme = 'light-to-dark' } = Astro.props;
+const t = ui[lang];
+const p = tr(profile, lang);
 const {
-  title = `${profile.name} · ${profile.headline}`,
-  description = profile.tagline,
-  theme = 'light-to-dark',
+  title = `${p.name} · ${p.headline}`,
+  description = p.tagline,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const abs = (path: string) => new URL(url(path), Astro.site).href;
+const ogImage = new URL(url('/og-image.png'), Astro.site).href;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: profile.name,
-  jobTitle: profile.headline,
+  jobTitle: p.headline,
+  description: p.tagline,
+  inLanguage: lang,
   address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
   url: Astro.site?.href,
   sameAs: [profile.links.github, profile.links.linkedin],
 };
 ---
 <!doctype html>
-<html lang="es" data-theme={theme === 'dark' ? 'dark' : undefined}>
+<html lang={t.htmlLang} data-theme={theme === 'dark' ? 'dark' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -37,18 +47,25 @@ const jsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="alternate" hreflang="es" href={abs(alt.es)} />
+    <link rel="alternate" hreflang="en" href={abs(alt.en)} />
+    <link rel="alternate" hreflang="x-default" href={abs(alt.es)} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content="es_ES" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="2540" />
+    <meta property="og:image:height" content="1249" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content="#ffffff" />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-bg">
-      Saltar al contenido
+      {t.skip}
     </a>
     <slot />
     <script>

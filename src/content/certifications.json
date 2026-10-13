@@ -30,6 +30,9 @@
   },
   {
     "id": "n8n-udemy",
+    "en": {
+      "name": "n8n Automation"
+    },
     "name": "Automatización con n8n",
     "issuer": "Udemy",
     "credentialUrl": "https://ude.my/UC-b5e83c7e-eb51-4005-8c75-7e3d661d14bc",
@@ -48,6 +51,10 @@
   },
   {
     "id": "usal-analisis-datos-ia",
+    "en": {
+      "name": "Data analysis with artificial intelligence in economics and business",
+      "issuer": "University of Salamanca"
+    },
     "name": "Análisis de datos con inteligencia artificial en el campo de economía y empresa",
     "issuer": "Universidad de Salamanca",
     "logo": "lucide:graduation-cap",

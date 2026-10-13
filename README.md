@@ -2,6 +2,7 @@
 
 Mi web personal, donde reúno quién soy, mis proyectos, habilidades, certificaciones, estudios y experiencia.
 Está pensada para que cualquiera, sea del sector o no, entienda lo que hago.
+Disponible en español e inglés.
 
 🔗 **https://ivan-0612.github.io**
 
@@ -25,6 +26,12 @@ El contenido está separado del diseño: todo lo que se muestra sale de archivos
 | Experiencia | `src/content/experience.json` |
 | Estudios | `src/content/education.json` |
 | Datos personales y enlaces | `src/content/profile.json` |
+
+## Idiomas
+
+El español está en la raíz (`/`) y el inglés en `/en/`. Los textos de la interfaz están en `src/lib/i18n.ts`.
+Cada elemento de los archivos de contenido puede llevar un bloque `"en": { ... }` con su traducción (si falta, se muestra en español).
+Los proyectos en inglés están en `src/content/projects-en/`, con el mismo nombre de archivo que el original.
 
 ## Ejecutar en local
 

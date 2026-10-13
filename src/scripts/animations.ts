@@ -57,8 +57,8 @@ function initFunctional() {
   btn?.addEventListener('click', async () => {
     const email = btn.dataset.email!;
     try { await navigator.clipboard.writeText(email); } catch { location.href = `mailto:${email}`; return; }
-    if (label) label.textContent = 'Email copiado ✓';
-    if (status) status.textContent = 'Email copiado al portapapeles';
+    if (label) label.textContent = btn.dataset.copied ?? 'Email copiado ✓';
+    if (status) status.textContent = btn.dataset.copiedStatus ?? 'Email copiado al portapapeles';
     setTimeout(() => { if (label) label.textContent = email; }, 2000);
   });
 
@@ -239,7 +239,7 @@ function initSkillPopover() {
     title.textContent = chip.textContent?.trim() ?? '';
     list.replaceChildren();
     if (ids.length) {
-      label.textContent = ids.length === 1 ? 'La uso en este proyecto' : `La uso en ${ids.length} proyectos`;
+      label.textContent = ids.length === 1 ? (pop.dataset.one ?? 'La uso en este proyecto') : (pop.dataset.many ?? 'La uso en {n} proyectos').replace('{n}', String(ids.length));
       ids.forEach((id) => {
         const li = document.createElement('li');
         const a = document.createElement('a');

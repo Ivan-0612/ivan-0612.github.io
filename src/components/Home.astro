@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import About from './About.astro';
+import Stats from './Stats.astro';
+import Skills from './Skills.astro';
+import Projects from './Projects.astro';
+import Experience from './Experience.astro';
+import Certifications from './Certifications.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import type { Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+---
+<BaseLayout lang={lang}>
+  <Nav lang={lang} />
+  <main id="contenido">
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Stats lang={lang} />
+    <Skills lang={lang} />
+    <Projects lang={lang} />
+    <Experience lang={lang} />
+    <Certifications lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>

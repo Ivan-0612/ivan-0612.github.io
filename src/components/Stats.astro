@@ -1,16 +1,20 @@
 ---
 import { getCollection } from 'astro:content';
+import { ui, tr, lurl, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
 const projects = await getCollection('projects');
 const certs = (await getCollection('certifications')).filter((c) => c.data.type === 'certificacion');
 const skills = await getCollection('skills');
 const techs = new Set(skills.flatMap((g) => g.data.items.map((i) => i.name)));
 const stats = [
-  { n: projects.length, label: 'Proyectos publicados' },
-  { n: certs.length, label: 'Certificaciones' },
-  { n: techs.size, label: 'Tecnologías y herramientas' },
+  { n: projects.length, label: t.stats[0] },
+  { n: certs.length, label: t.stats[1] },
+  { n: techs.size, label: t.stats[2] },
 ];
 ---
-<section class="border-y border-line py-14" aria-label="Cifras">
+<section class="border-y border-line py-14" aria-label={t.statsAria}>
   <div class="container-cv grid grid-cols-3 gap-6 text-center">
     {stats.map((s) => (
       <div>

@@ -1,18 +1,23 @@
 ---
 import profile from '../content/profile.json';
 import { Icon } from 'astro-icon/components';
+import { ui, tr, lurl, projectPath, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
+const p = tr(profile, lang);
 ---
 <section id="contacto" class="section">
   <div class="container-cv">
-    <p class="eyebrow">07 — Contacto</p>
+    <p class="eyebrow">{t.contactEyebrow}</p>
     <h2 class="h-display mt-4 text-[clamp(2.75rem,8vw,6.5rem)]">
-      ¿Hablamos de datos?
+      {t.contactTitle}
     </h2>
     <p class="mt-6 max-w-xl text-lg text-muted">
-      Busco un puesto de Data Analyst o BI Analyst. Escríbeme y te respondo en cuanto pueda.
+      {t.contactText}
     </p>
     <div class="mt-10 flex flex-wrap items-center gap-3">
-      <button type="button" id="copy-email" class="btn btn-solid" data-magnetic data-email={profile.links.email}>
+      <button type="button" id="copy-email" class="btn btn-solid" data-magnetic data-email={profile.links.email} data-copied={t.copied} data-copied-status={t.copiedStatus}>
         <Icon name="lucide:mail" class="h-4 w-4" /><span id="copy-email-label">{profile.links.email}</span>
       </button>
       <a href={profile.links.linkedin} target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>
@@ -21,8 +26,8 @@ import { Icon } from 'astro-icon/components';
       <a href={profile.links.github} target="_blank" rel="noopener" class="btn btn-ghost" data-magnetic>
         <Icon name="simple-icons:github" class="h-4 w-4" />GitHub
       </a>
-      <a href={profile.links.cv} download class="btn btn-ghost" data-magnetic>
-        <Icon name="lucide:download" class="h-4 w-4" />CV (PDF)
+      <a href={p.links.cv} download class="btn btn-ghost" data-magnetic>
+        <Icon name="lucide:download" class="h-4 w-4" />{t.cvPdf}
       </a>
     </div>
     <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>

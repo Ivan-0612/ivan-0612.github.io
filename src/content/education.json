@@ -1,6 +1,9 @@
 [
   {
     "id": "master-ufv",
+    "en": {
+      "title": "Master's in Business Analytics, AI and Machine Learning"
+    },
     "title": "Máster en Business Analytics, IA y Machine Learning",
     "org": "Universidad Francisco de Vitoria",
     "location": "Madrid",
@@ -8,6 +11,9 @@
   },
   {
     "id": "ade-usal",
+    "en": {
+      "title": "Bachelor's in Business Administration and Management"
+    },
     "title": "Grado en Administración y Dirección de Empresas",
     "org": "Universidad de Salamanca",
     "location": "Salamanca",

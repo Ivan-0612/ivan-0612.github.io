@@ -1,20 +1,24 @@
 ---
 import { getCollection } from 'astro:content';
 import Timeline from './Timeline.astro';
+import { ui, tr, lurl, projectPath, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
 const experience = await getCollection('experience');
 const education = await getCollection('education');
 ---
 <section id="experiencia" class="section">
   <div class="container-cv grid gap-16 md:grid-cols-2">
     <div>
-      <p class="eyebrow">04 — Experiencia</p>
-      <h2 class="h-display h-section mb-12 mt-4">Dónde he trabajado</h2>
-      <Timeline items={experience} />
+      <p class="eyebrow">{t.expEyebrow}</p>
+      <h2 class="h-display h-section mb-12 mt-4">{t.expTitle}</h2>
+      <Timeline items={experience} lang={lang} />
     </div>
     <div id="estudios">
-      <p class="eyebrow">05 — Estudios</p>
-      <h2 class="h-display h-section mb-12 mt-4">Cómo me he formado</h2>
-      <Timeline items={education} />
+      <p class="eyebrow">{t.eduEyebrow}</p>
+      <h2 class="h-display h-section mb-12 mt-4">{t.eduTitle}</h2>
+      <Timeline items={education} lang={lang} />
     </div>
   </div>
 </section>

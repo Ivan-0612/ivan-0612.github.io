@@ -1,5 +1,9 @@
 ---
 import { url } from '../lib/url';
+import { ui, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
 ---
 <div id="avatar-wrap" class="relative mx-auto w-fit will-change-transform">
   <figure
@@ -16,7 +20,7 @@ import { url } from '../lib/url';
       playsinline
       preload="auto"
       poster={url('/media/avatar-poster.webp')}
-      aria-label="Vídeo de Iván Benito en traje"
+      aria-label={t.avatarAria}
     >
       <source src={url('/media/avatar.webm')} type="video/webm" />
       <source src={url('/media/avatar.mp4')} type="video/mp4" />
@@ -26,6 +30,8 @@ import { url } from '../lib/url';
     id="avatar-toggle"
     type="button"
     class="absolute bottom-3 right-0 rounded-full bg-black/60 px-2.5 py-1.5 text-xs text-white opacity-70 transition hover:opacity-100 focus-visible:opacity-100"
-    aria-label="Pausar vídeo"
+    aria-label={t.pause}
+    data-label-pause={t.pause}
+    data-label-play={t.play}
   >❚❚</button>
 </div>

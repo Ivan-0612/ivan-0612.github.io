@@ -1,16 +1,17 @@
 ---
 import { formatRange } from '../lib/format';
-interface Props { items: { id: string; data: any }[]; }
-const { items } = Astro.props;
+import { tr, type Lang } from '../lib/i18n';
+interface Props { items: { id: string; data: any }[]; lang?: Lang; }
+const { items, lang = 'es' } = Astro.props;
 const sorted = [...items].sort((a, b) => b.data.start.getTime() - a.data.start.getTime());
 ---
 <div class="timeline relative pl-8 md:pl-10">
   <div class="tl-line absolute left-[5px] top-2 h-[calc(100%-1rem)] w-px origin-top bg-accent/60" aria-hidden="true"></div>
   <ol class="space-y-12">
-    {sorted.map(({ data }) => (
+    {sorted.map(({ data: raw }) => { const data = tr(raw, lang); return (
       <li class="tl-item relative">
         <span class="absolute -left-8 top-2 h-[11px] w-[11px] rounded-full border-2 border-accent bg-bg md:-left-10" aria-hidden="true"></span>
-        <p class="eyebrow">{formatRange(data.start, data.end, data.precision)}</p>
+        <p class="eyebrow">{formatRange(data.start, data.end, data.precision, lang)}</p>
         <h3 class="mt-2 text-xl font-semibold">{data.title}</h3>
         <p class="text-muted">{data.org}{data.location ? ` · ${data.location}` : ''}</p>
         {data.bullets.length > 0 && (
@@ -22,6 +23,6 @@ const sorted = [...items].sort((a, b) => b.data.start.getTime() - a.data.start.g
           <ul class="mt-4 flex flex-wrap gap-1.5">{data.stack.map((s: string) => <li class="tag">{s}</li>)}</ul>
         )}
       </li>
-    ))}
+    ); })}
   </ol>
 </div>

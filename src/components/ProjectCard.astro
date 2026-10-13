@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
-import { categoryLabels } from '../lib/format';
-import { url } from '../lib/url';
+import { ui, projectUrl, type Lang } from '../lib/i18n';
 
-interface Props { id: string; data: any; index: number; }
-const { id, data, index } = Astro.props;
-const [l1, l2] = data.repoLabels ?? ['Código', 'Código 2'];
+interface Props { id: string; data: any; index: number; lang?: Lang; }
+const { id, data, index, lang = 'es' } = Astro.props;
+const t = ui[lang];
+const [l1, l2] = data.repoLabels ?? t.code;
 ---
 <article
   class="project-card reveal tilt group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface"
@@ -19,14 +19,14 @@ const [l1, l2] = data.repoLabels ?? ['Código', 'Código 2'];
     ) : (
       <div class="flex h-full w-full items-end justify-between bg-[radial-gradient(120%_120%_at_0%_0%,color-mix(in_srgb,var(--accent)_28%,transparent),transparent_60%)] p-5 grayscale transition duration-500 group-hover:grayscale-0">
         <span class="h-display text-7xl text-fg/20 transition group-hover:text-accent/60">{String(index + 1).padStart(2, '0')}</span>
-        <span class="eyebrow">{categoryLabels[data.category]}</span>
+        <span class="eyebrow">{t.categories[data.category]}</span>
       </div>
     )}
   </div>
   <div class="flex flex-1 flex-col p-6">
-    <p class="eyebrow mb-3">{categoryLabels[data.category]}{data.featured ? ' · Destacado' : ''}</p>
+    <p class="eyebrow mb-3">{t.categories[data.category]}{data.featured ? ` · ${t.featured}` : ''}</p>
     <h3 class="h-display text-3xl">
-      <a href={url(`/proyectos/${id}/`)} class="after:absolute after:inset-0 after:content-['']">{data.title}</a>
+      <a href={projectUrl(lang, id)} class="after:absolute after:inset-0 after:content-['']">{data.title}</a>
     </h3>
     <p class="mt-3 text-muted">{data.summary}</p>
     <ul class="mt-5 flex flex-wrap gap-1.5">
@@ -35,7 +35,7 @@ const [l1, l2] = data.repoLabels ?? ['Código', 'Código 2'];
     <div class="relative z-10 mt-auto flex flex-wrap gap-x-5 gap-y-2 pt-6 text-sm">
       {data.repo && <a href={data.repo} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="simple-icons:github" class="h-4 w-4" />{l1}</a>}
       {data.repo2 && <a href={data.repo2} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="simple-icons:github" class="h-4 w-4" />{l2}</a>}
-      {data.demo && <a href={data.demo} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="lucide:external-link" class="h-4 w-4" />Demo</a>}
+      {data.demo && <a href={data.demo} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="lucide:external-link" class="h-4 w-4" />{t.demo}</a>}
     </div>
   </div>
 </article>

@@ -1,18 +1,23 @@
 ---
 import profile from '../content/profile.json';
+import { ui, tr, lurl, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
+const p = tr(profile, lang);
 ---
 <section id="sobre-mi" class="section">
   <div class="container-cv grid gap-12 md:grid-cols-[1fr_2fr]">
     <div>
-      <p class="eyebrow">01 — Sobre mí</p>
-      <h2 class="h-display h-section mt-4">Quién soy</h2>
+      <p class="eyebrow">{t.aboutEyebrow}</p>
+      <h2 class="h-display h-section mt-4">{t.aboutTitle}</h2>
     </div>
     <div>
       <div id="about-text" class="space-y-5 text-xl leading-relaxed md:text-2xl">
-        {profile.about.map((p) => <p>{p}</p>)}
+        {p.about.map((p) => <p>{p}</p>)}
       </div>
       <dl class="reveal mt-10 flex flex-wrap gap-x-10 gap-y-4 border-t border-line pt-6 text-sm">
-        {profile.languages.map((l) => (
+        {p.languages.map((l) => (
           <div>
             <dt class="eyebrow">{l.name}</dt>
             <dd class="mt-1">{l.level}</dd>

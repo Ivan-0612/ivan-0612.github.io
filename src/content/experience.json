@@ -1,6 +1,16 @@
 [
   {
     "id": "ufv-data-analyst",
+    "en": {
+      "title": "Data Analyst (Internship)",
+      "bullets": [
+        "Owned the full data cycle in reporting projects: data cleaning and preparation, modeling, analysis and presentation of results to end-user teams.",
+        "Used advanced Excel, Power Query and Python to consolidate, clean and validate data from different academic sources before analysis.",
+        "Designed data models and built interactive Power BI reports (DAX, bookmarks, filters), automating institutional reporting.",
+        "Applied statistical and Machine Learning techniques (clustering, Random Forest, regression) to segment profiles and predict academic performance.",
+        "Automated tasks and data ingestion with Power Automate."
+      ]
+    },
     "title": "Analista de Datos (Prácticas)",
     "org": "Universidad Francisco de Vitoria",
     "location": "Madrid",

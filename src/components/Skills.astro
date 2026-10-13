@@ -1,17 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
-import { url } from '../lib/url';
+import { getProjects } from '../lib/content';
+import { ui, tr, lurl, type Lang } from '../lib/i18n';
+interface Props { lang?: Lang; }
+const { lang = 'es' } = Astro.props;
+const t = ui[lang];
 
-const groups = (await getCollection('skills')).sort((a, b) => a.data.order - b.data.order);
-const projects = await getCollection('projects');
+const groups = (await getCollection('skills'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((g) => ({ ...g, data: { ...tr(g.data, lang), items: g.data.items.map((i) => tr(i, lang)) } }));
+const projects = await getProjects(lang);
 const titles = Object.fromEntries(projects.map((p) => [p.id, p.data.title]));
 const all = groups.flatMap((g) => g.data.items.map((i) => i.name));
 ---
 <section id="habilidades" class="section">
   <div class="container-cv">
-    <p class="eyebrow">02 — Habilidades</p>
-    <h2 class="h-display h-section mt-4">Con qué trabajo</h2>
-    <p class="mt-4 max-w-xl text-muted">Pasa el ratón (o toca) una habilidad de las de abajo para ver en qué proyectos la he usado.</p>
+    <p class="eyebrow">{t.skillsEyebrow}</p>
+    <h2 class="h-display h-section mt-4">{t.skillsTitle}</h2>
+    <p class="mt-4 max-w-xl text-muted">{t.skillsIntro}</p>
   </div>
 
   <div class="marquee mt-12 overflow-hidden border-y border-line py-5" aria-hidden="true">
@@ -47,7 +53,9 @@ const all = groups.flatMap((g) => g.data.items.map((i) => i.name));
     hidden
     class="fixed z-40 w-72 rounded-xl border border-line bg-surface p-4 text-sm shadow-2xl"
     data-titles={JSON.stringify(titles)}
-    data-base={url('/proyectos/')}
+    data-base={lurl(lang, lang === 'en' ? '/projects/' : '/proyectos/')}
+    data-one={t.popOne}
+    data-many={t.popMany}
   >
     <p id="skill-pop-title" class="font-medium"></p>
     <p id="skill-pop-label" class="eyebrow mt-2"></p>

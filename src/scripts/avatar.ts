@@ -62,7 +62,7 @@ export function initAvatar() {
     const pause = !video.paused;
     if (pause) video.pause(); else video.play().catch(() => {});
     fig.dataset.userPaused = String(pause);
-    toggle.setAttribute('aria-label', pause ? 'Reproducir vídeo' : 'Pausar vídeo');
+    toggle.setAttribute('aria-label', (pause ? toggle.dataset.labelPlay : toggle.dataset.labelPause) ?? (pause ? 'Reproducir vídeo' : 'Pausar vídeo'));
     toggle.textContent = pause ? '▶' : '❚❚';
   });
 
@@ -70,6 +70,6 @@ export function initAvatar() {
   if (reduced) {
     video.pause();
     fig.dataset.userPaused = 'true';
-    if (toggle) { toggle.textContent = '▶'; toggle.setAttribute('aria-label', 'Reproducir vídeo'); }
+    if (toggle) { toggle.textContent = '▶'; toggle.setAttribute('aria-label', toggle.dataset.labelPlay ?? 'Reproducir vídeo'); }
   }
 }

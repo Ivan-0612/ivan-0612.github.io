@@ -30,6 +30,7 @@
       },
       {
         "name": "Arquitectura Medallion",
+        "en": {"name": "Medallion architecture"},
         "projects": [
           "olist-ecommerce-fabric"
         ]
@@ -42,6 +43,7 @@
       },
       {
         "name": "Notebooks PySpark",
+        "en": {"name": "PySpark notebooks"},
         "projects": [
           "olist-ecommerce-fabric"
         ]
@@ -52,6 +54,7 @@
   {
     "id": "sql",
     "group": "SQL y modelado de datos",
+    "en": { "group": "SQL & data modeling" },
     "items": [
       {
         "name": "T-SQL",
@@ -61,24 +64,28 @@
       },
       {
         "name": "Procedimientos almacenados",
+        "en": {"name": "Stored procedures"},
         "projects": [
           "fabric-financial-dwh"
         ]
       },
       {
         "name": "Vistas",
+        "en": {"name": "Views"},
         "projects": [
           "fabric-financial-dwh"
         ]
       },
       {
         "name": "Funciones ventana",
+        "en": {"name": "Window functions"},
         "projects": [
           "fabric-financial-dwh"
         ]
       },
       {
         "name": "Modelado dimensional (estrella)",
+        "en": {"name": "Dimensional modeling (star schema)"},
         "projects": [
           "olist-ecommerce-fabric"
         ]
@@ -92,6 +99,7 @@
       },
       {
         "name": "Calidad del dato",
+        "en": {"name": "Data quality"},
         "projects": [
           "olist-ecommerce-fabric"
         ]
@@ -102,9 +110,11 @@
   {
     "id": "bi",
     "group": "BI y visualización",
+    "en": { "group": "BI & visualization" },
     "items": [
       {
         "name": "Power BI (modelos semánticos)",
+        "en": {"name": "Power BI (semantic models)", "note": "I also used it during my internship at UFV."},
         "projects": [
           "olist-ecommerce-fabric"
         ],
@@ -112,6 +122,7 @@
       },
       {
         "name": "DAX",
+        "en": {"note": "I also used it during my internship at UFV."},
         "projects": [
           "olist-ecommerce-fabric"
         ],
@@ -119,21 +130,25 @@
       },
       {
         "name": "Power Query",
+        "en": {"note": "I used it during my internship at UFV to clean and consolidate data."},
         "projects": [],
         "note": "Lo usé en mis prácticas en la UFV para depurar y consolidar datos."
       },
       {
         "name": "Excel avanzado",
+        "en": {"name": "Advanced Excel", "note": "I used it during my internship at UFV to consolidate and validate data."},
         "projects": [],
         "note": "Lo usé en mis prácticas en la UFV para consolidar y validar datos."
       },
       {
         "name": "Looker Studio",
+        "en": {"note": "No public project on this site."},
         "projects": [],
         "note": "Sin proyecto público en esta web."
       },
       {
         "name": "MicroStrategy",
+        "en": {"note": "No public project on this site."},
         "projects": [],
         "note": "Sin proyecto público en esta web."
       }
@@ -143,6 +158,7 @@
   {
     "id": "security",
     "group": "Seguridad y gobierno del dato",
+    "en": { "group": "Data security & governance" },
     "items": [
       {
         "name": "Row-Level Security (RLS)",
@@ -158,6 +174,7 @@
       },
       {
         "name": "Control de acceso",
+        "en": {"name": "Access control"},
         "projects": [
           "fabric-financial-dwh"
         ]
@@ -168,9 +185,11 @@
   {
     "id": "code-ml",
     "group": "Programación, automatización y ML",
+    "en": { "group": "Programming, automation & ML" },
     "items": [
       {
         "name": "Python",
+        "en": {"note": "I also used it during my internship at UFV."},
         "projects": [
           "salary-seniority-prediction",
           "telco-customer-churn",
@@ -180,6 +199,7 @@
       },
       {
         "name": "Pandas",
+        "en": {"note": "I also used it during my internship at UFV."},
         "projects": [
           "salary-seniority-prediction",
           "telco-customer-churn",
@@ -209,6 +229,7 @@
       },
       {
         "name": "Clustering",
+        "en": {"note": "I also used it during my internship at UFV."},
         "projects": [
           "diabetes-prediction"
         ],
@@ -222,22 +243,26 @@
       },
       {
         "name": "Arquitecturas RAG",
+        "en": {"name": "RAG architectures"},
         "projects": [
           "salary-seniority-prediction"
         ]
       },
       {
         "name": "Power Automate",
+        "en": {"note": "I used it during my internship at UFV to automate tasks and data ingestion."},
         "projects": [],
         "note": "Lo usé en mis prácticas en la UFV para automatizar tareas e ingesta de datos."
       },
       {
         "name": "n8n",
+        "en": {"note": "I learned it through a Udemy course."},
         "projects": [],
         "note": "Lo aprendí con un curso de Udemy."
       },
       {
         "name": "Git",
+        "en": {"note": "All my projects are version-controlled on GitHub."},
         "projects": [
           "fabric-financial-dwh",
           "olist-ecommerce-fabric",

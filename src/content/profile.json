@@ -1,6 +1,31 @@
 {
   "name": "Iván Benito Sánchez",
   "firstName": "Iván",
+  "en": {
+    "location": "Madrid, Spain",
+    "tagline": "I build end-to-end data platforms: from pipeline to dashboard, with secure, reliable data.",
+    "about": [
+      "Data analyst with a background in Business Administration and Business Analytics, certified as a Microsoft Fabric Analytics Engineer Associate.",
+      "I build complete data solutions on Microsoft Fabric: from data ingestion and automated loading with pipelines and T-SQL, to dimensional modeling, Power BI semantic models and data security.",
+      "I care about reliable data that the business can actually use to make decisions. I am looking for a Data Analyst or BI Analyst position where I can add value on a real data platform."
+    ],
+    "languages": [
+      {
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "B2 · First Certificate in English"
+      }
+    ],
+    "links": {
+      "email": "ivanbenitosanchez@gmail.com",
+      "github": "https://github.com/Ivan-0612",
+      "linkedin": "https://www.linkedin.com/in/ivanbenitosanchez/",
+      "cv": "/cv/Ivan_Benito_CV_EN.pdf"
+    }
+  },
   "headline": "Data & BI Analyst | Microsoft Fabric",
   "location": "Madrid, España",
   "tagline": "Construyo plataformas de datos de extremo a extremo: del pipeline al dashboard, con el dato seguro y fiable.",
