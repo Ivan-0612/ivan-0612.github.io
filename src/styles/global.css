@@ -118,3 +118,7 @@ body {
 @media (max-width: 767.98px) {
   #avatar-video { filter: none !important; }
 }
+
+/* Llegada con #ancla desde otra página: sin parpadeo del inicio */
+html.hash-wait body { opacity: 0; }
+body { transition: opacity .2s ease; }

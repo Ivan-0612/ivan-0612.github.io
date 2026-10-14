@@ -59,6 +59,7 @@ export const ui = {
     code: ['Código', 'Código 2'],
     demo: 'Demo',
     viewDemo: 'Ver demo',
+    demoNote: 'La demo está alojada en {host} (plan gratuito), así que puede tardar hasta un minuto en cargar la primera vez.',
     projectsBack: 'Proyectos',
     nextProject: 'Siguiente proyecto',
     expEyebrow: '04 — Experiencia',
@@ -127,6 +128,7 @@ export const ui = {
     code: ['Code', 'Code 2'],
     demo: 'Demo',
     viewDemo: 'View demo',
+    demoNote: 'The demo is hosted on {host} (free tier), so it may take up to a minute to load the first time.',
     projectsBack: 'Projects',
     nextProject: 'Next project',
     expEyebrow: '04 — Experience',
@@ -157,5 +159,7 @@ export const ui = {
     } as Record<string, string>,
   },
 } as const;
+
+export const demoHost = (u: string) => (u.includes('huggingface.co') ? 'Hugging Face Spaces' : u.includes('onrender.com') ? 'Render' : new URL(u).hostname);
 
 export type UI = (typeof ui)['es'];

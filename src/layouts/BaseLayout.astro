@@ -44,6 +44,14 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Si se llega con #ancla desde otra página, se oculta la página hasta colocarla en su sitio
+      // (evita ver un instante el inicio antes de saltar a la sección).
+      if (location.hash.length > 1) {
+        document.documentElement.classList.add('hash-wait');
+        setTimeout(function () { document.documentElement.classList.remove('hash-wait'); }, 1800);
+      }
+    </script>
     <script is:inline define:vars={{ enTarget, auto: lang === 'es' }}>
       // Idioma: si has elegido uno con el botón ES/EN, se respeta; si no, se usa el del navegador.
       // Español si tu navegador lo prefiere; en inglés (u otro idioma) se abre la versión en inglés.
@@ -91,6 +99,20 @@ const jsonLd = {
       {t.skip}
     </a>
     <slot />
+    <script is:inline>
+      (function () {
+        var h = location.hash;
+        if (h.length < 2) return;
+        var go = function () { var el = null; try { el = document.querySelector(h); } catch (e) {} if (el) el.scrollIntoView({ block: 'start' }); };
+        var done = function () { go(); document.documentElement.classList.remove('hash-wait'); };
+        go();
+        if (document.readyState === 'complete') requestAnimationFrame(done);
+        else addEventListener('load', function () {
+          var f = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+          f.then(function () { requestAnimationFrame(done); });
+        });
+      })();
+    </script>
     <script>
       import { initSmoothScroll } from '../scripts/smooth-scroll';
       import { initAnimations } from '../scripts/animations';

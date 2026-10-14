@@ -4,7 +4,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
-import { ui, lurl, projectPath, projectUrl, type Lang } from '../lib/i18n';
+import { ui, lurl, projectPath, projectUrl, demoHost, type Lang } from '../lib/i18n';
 
 interface Props { entry: any; next: any; lang?: Lang; }
 const { entry, next, lang = 'es' } = Astro.props;
@@ -17,7 +17,7 @@ const alt = { es: projectPath('es', entry.id), en: projectPath('en', entry.id) }
 <BaseLayout title={`${d.title} · Iván Benito`} description={d.summary} theme="dark" lang={lang} alt={alt}>
   <Nav lang={lang} alt={alt} />
   <main id="contenido" class="container-cv pb-24 pt-36">
-    <a href={lurl(lang, '/#proyectos')} class="eyebrow inline-flex items-center gap-2 hover:text-fg"><Icon name="lucide:arrow-left" class="h-4 w-4" />{t.projectsBack}</a>
+    <a href={lurl(lang, '/#proyectos')} data-back-projects class="eyebrow inline-flex items-center gap-2 hover:text-fg"><Icon name="lucide:arrow-left" class="h-4 w-4" />{t.projectsBack}</a>
     <p class="eyebrow mt-10 text-accent">{t.categories[d.category]}</p>
     <h1 class="h-display mt-3 max-w-4xl text-[clamp(2.5rem,6vw,5rem)]">{d.title}</h1>
     <p class="mt-5 max-w-2xl text-xl text-muted">{d.summary}</p>
@@ -27,6 +27,7 @@ const alt = { es: projectPath('es', entry.id), en: projectPath('en', entry.id) }
       {d.repo2 && <a href={d.repo2} target="_blank" rel="noopener" class="btn btn-ghost"><Icon name="simple-icons:github" class="h-4 w-4" />{l2}</a>}
       {d.demo && <a href={d.demo} target="_blank" rel="noopener" class="btn btn-solid"><Icon name="lucide:external-link" class="h-4 w-4" />{t.viewDemo}</a>}
     </div>
+    {d.demo && <p class="mt-4 max-w-xl text-sm text-muted">{t.demoNote.replace('{host}', demoHost(d.demo))}</p>}
     <hr class="my-12 border-line" />
     <div class="prose-cv"><Content /></div>
     <a href={projectUrl(lang, next.id)} class="mt-20 block rounded-2xl border border-line bg-surface p-8 transition-colors hover:border-accent">
@@ -36,3 +37,16 @@ const alt = { es: projectPath('es', entry.id), en: projectPath('en', entry.id) }
   </main>
   <Footer lang={lang} />
 </BaseLayout>
+
+<script is:inline>
+  // Si vienes de la home, "volver" usa el historial: el navegador restaura la posición exacta.
+  document.querySelector('[data-back-projects]')?.addEventListener('click', function (e) {
+    try {
+      var r = document.referrer && new URL(document.referrer);
+      if (r && r.origin === location.origin && history.length > 1 && /^\/(en\/)?(#.*)?$/.test(r.pathname + r.hash)) {
+        e.preventDefault();
+        history.back();
+      }
+    } catch (err) {}
+  });
+</script>

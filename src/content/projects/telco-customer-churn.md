@@ -7,11 +7,12 @@ stack: ["Python", "XGBoost", "scikit-learn", "SHAP", "Streamlit", "Docker", "Ren
 repo: "https://github.com/Ivan-0612/Telco-Customer-Churn"
 repo2: "https://github.com/Ivan-0612/telecom-churn-app-deployment"
 repoLabels: ["Modelo", "Despliegue"]
+demo: "https://telecom-churn-app-deployment.onrender.com"
 order: 4
 ---
 
 ## En pocas palabras
-Un modelo de machine learning que **predice qué clientes de una compañía de telefonía van a darse de baja** (lo que en el sector se llama *churn*), para que la empresa pueda actuar antes de perderlos. Retener a un cliente cuesta mucho menos que conseguir uno nuevo, así que lo importante no es acertar siempre, sino **no dejar escapar a los que realmente se van**. Incluye una aplicación web donde se puede probar.
+Un modelo de machine learning que **predice qué clientes de una compañía de telefonía van a darse de baja** (lo que en el sector se llama *churn*), para que la empresa pueda actuar antes de perderlos. Retener a un cliente cuesta mucho menos que conseguir uno nuevo, así que lo importante no es acertar siempre, sino **no dejar escapar a los que realmente se van**. Incluye una aplicación web donde se puede probar (puede tardar unos segundos en arrancar).
 
 ## Qué hice
 - **Comparé tres modelos** (XGBoost, Random Forest y KNN) y me quedé con XGBoost, el que mejor separaba a los clientes que se van de los que se quedan (AUC de 0,843; con 1 sería perfecto y 0,5 equivale al azar).

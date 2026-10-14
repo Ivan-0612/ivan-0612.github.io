@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
-import { ui, projectUrl, type Lang } from '../lib/i18n';
+import { ui, projectUrl, demoHost, type Lang } from '../lib/i18n';
 
 interface Props { id: string; data: any; index: number; lang?: Lang; }
 const { id, data, index, lang = 'es' } = Astro.props;
@@ -35,7 +35,7 @@ const [l1, l2] = data.repoLabels ?? t.code;
     <div class="relative z-10 mt-auto flex flex-wrap gap-x-5 gap-y-2 pt-6 text-sm">
       {data.repo && <a href={data.repo} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="simple-icons:github" class="h-4 w-4" />{l1}</a>}
       {data.repo2 && <a href={data.repo2} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="simple-icons:github" class="h-4 w-4" />{l2}</a>}
-      {data.demo && <a href={data.demo} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="lucide:external-link" class="h-4 w-4" />{t.demo}</a>}
+      {data.demo && <a href={data.demo} target="_blank" rel="noopener" title={t.demoNote.replace('{host}', demoHost(data.demo))} class="inline-flex items-center gap-1.5 hover:text-accent"><Icon name="lucide:external-link" class="h-4 w-4" />{t.demo}</a>}
     </div>
   </div>
 </article>
