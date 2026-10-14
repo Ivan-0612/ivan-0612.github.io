@@ -5,9 +5,9 @@
     "location": "Madrid, Spain",
     "tagline": "I build end-to-end data platforms: from pipeline to dashboard, with secure, reliable data.",
     "about": [
-      "Data analyst with a background in Business Administration and Business Analytics, certified as a Microsoft Fabric Analytics Engineer Associate.",
-      "I build complete data solutions on Microsoft Fabric: from data ingestion and automated loading with pipelines and T-SQL, to dimensional modeling, Power BI semantic models and data security.",
-      "I care about reliable data that the business can actually use to make decisions. I am looking for a Data Analyst or BI Analyst position where I can add value on a real data platform."
+      "Analytics Engineer and Data & BI Analyst with a background in Business Administration and Business Analytics, certified as a Microsoft Fabric Analytics Engineer Associate.",
+      "I build complete data solutions on Microsoft Fabric: data pipelines and ETL/ELT with Data Factory and T-SQL, data warehouse and dimensional modeling (star schema), Power BI semantic models and dashboards, and data security and governance.",
+      "I care about reliable data that the business can actually use to make decisions. I am looking for an Analytics Engineer, BI Engineer, Data Analyst or BI Analyst position where I can add value on a real data platform."
     ],
     "languages": [
       {
@@ -26,13 +26,13 @@
       "cv": "/cv/Ivan_Benito_CV_EN.pdf"
     }
   },
-  "headline": "Data & BI Analyst | Microsoft Fabric",
+  "headline": "Analytics Engineer | Data & BI Analyst | Microsoft Fabric",
   "location": "Madrid, España",
   "tagline": "Construyo plataformas de datos de extremo a extremo: del pipeline al dashboard, con el dato seguro y fiable.",
   "about": [
-    "Analista de datos con formación en ADE y Business Analytics, certificado como Microsoft Fabric Analytics Engineer Associate.",
-    "Construyo soluciones de datos completas sobre Microsoft Fabric: desde la ingesta y la carga automatizada con pipelines y T-SQL, hasta el modelado dimensional, los modelos semánticos en Power BI y la seguridad del dato.",
-    "Me interesa que el dato sea fiable y que el negocio lo use para decidir. Busco un puesto de Data Analyst o BI Analyst donde aportar valor sobre una plataforma de datos real."
+    "Analytics Engineer y analista de datos y BI, con formación en ADE y Business Analytics, certificado como Microsoft Fabric Analytics Engineer Associate.",
+    "Construyo soluciones de datos completas sobre Microsoft Fabric: pipelines de datos y ETL/ELT con Data Factory y T-SQL, data warehouse y modelado dimensional (esquema en estrella), modelos semánticos y dashboards en Power BI, y seguridad y gobierno del dato.",
+    "Me interesa que el dato sea fiable y que el negocio lo use para decidir. Busco un puesto de Analytics Engineer, BI Engineer, Data Analyst o BI Analyst donde aportar valor sobre una plataforma de datos real."
   ],
   "languages": [
     { "name": "Español", "level": "Nativo" },
