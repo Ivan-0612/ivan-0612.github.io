@@ -3,11 +3,11 @@
   "firstName": "Iván",
   "en": {
     "location": "Madrid, Spain",
-    "tagline": "I build end-to-end data platforms: from pipeline to dashboard, with secure, reliable data.",
+    "tagline": "I build data solutions on Microsoft Fabric: from source to Lakehouse and Warehouse, with reliable, traceable data.",
     "about": [
-      "Analytics Engineer and Data & BI Analyst with a background in Business Administration and Business Analytics, certified as a Microsoft Fabric Analytics Engineer Associate.",
-      "I build complete data solutions on Microsoft Fabric: data pipelines and ETL/ELT with Data Factory and T-SQL, data warehouse and dimensional modeling (star schema), Power BI semantic models and dashboards, and data security and governance.",
-      "I care about reliable data that the business can actually use to make decisions. I am looking for an Analytics Engineer, BI Engineer, Data Analyst or BI Analyst position where I can add value on a real data platform."
+      "Data Engineer specializing in Microsoft Fabric, with a background in Business Administration and Business Analytics, certified as a Microsoft Fabric Analytics Engineer Associate.",
+      "I design and build data solutions on Fabric: Lakehouse, Data Warehouse and OneLake, data pipelines and ETL/ELT processes with Data Factory, SQL and PySpark, and dimensional data modeling.",
+      "I am currently part of the Data Engineering team at CEF.-UDIMA. I care about data being reliable, traceable and high-quality, and about the business actually using it to make decisions."
     ],
     "languages": [
       {
@@ -26,17 +26,23 @@
       "cv": "/cv/Ivan_Benito_CV_EN.pdf"
     }
   },
-  "headline": "Analytics Engineer | Data & BI Analyst | Microsoft Fabric",
+  "headline": "Data Engineer | Microsoft Fabric | SQL · PySpark · ETL/ELT",
   "location": "Madrid, España",
-  "tagline": "Construyo plataformas de datos de extremo a extremo: del pipeline al dashboard, con el dato seguro y fiable.",
+  "tagline": "Construyo soluciones de datos en Microsoft Fabric: del origen al Lakehouse y al Warehouse, con el dato fiable y trazable.",
   "about": [
-    "Analytics Engineer y analista de datos y BI, con formación en ADE y Business Analytics, certificado como Microsoft Fabric Analytics Engineer Associate.",
-    "Construyo soluciones de datos completas sobre Microsoft Fabric: pipelines de datos y ETL/ELT con Data Factory y T-SQL, data warehouse y modelado dimensional (esquema en estrella), modelos semánticos y dashboards en Power BI, y seguridad y gobierno del dato.",
-    "Me interesa que el dato sea fiable y que el negocio lo use para decidir. Busco un puesto de Analytics Engineer, BI Engineer, Data Analyst o BI Analyst donde aportar valor sobre una plataforma de datos real."
+    "Data Engineer especializado en Microsoft Fabric, con formación en ADE y Business Analytics y certificado como Microsoft Fabric Analytics Engineer Associate.",
+    "Diseño y desarrollo soluciones de datos en Fabric: Lakehouse, Data Warehouse y OneLake, pipelines y procesos de integración, transformación y carga (ETL/ELT) con Data Factory, SQL y PySpark, y modelado dimensional de los datos.",
+    "Actualmente formo parte del equipo de Ingeniería del Dato de CEF.-UDIMA. Me importa que el dato sea fiable, trazable y de calidad, y que el negocio lo use de verdad para decidir."
   ],
   "languages": [
-    { "name": "Español", "level": "Nativo" },
-    { "name": "Inglés", "level": "B2 · First Certificate in English" }
+    {
+      "name": "Español",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglés",
+      "level": "B2 · First Certificate in English"
+    }
   ],
   "links": {
     "email": "ivanbenitosanchez@gmail.com",
